@@ -35,7 +35,7 @@ public class House {
 
 //        Animal animal = new Animal("Jack", "grey", 1);
 
-        Human human = new Human("Harry");
+        Human human = new Human("Harry" ,30);
 //        human.feedAnimal(dog);
         human.feedAnimal(dog, cat1, cat2);
         human.walkAnimal(dog);
@@ -53,7 +53,21 @@ public class House {
         dog.play(human);
         cat2.play(dog);
 
+        Cat blackCat = new BlackCat("Robert",5);
+        blackCat.play(dog);
 
+        System.out.println("----------------");
+
+        human.grow();
+        cat1.grow();
+        dog.grow();
+        cat2.grow();
+        System.out.println("----------------");
+
+        robot.walkAnimal(dog);
+        Mouse mouse = new Mouse("Jerry", "gray", 1);
+        cat2.catchMouse(mouse);
+        robot.catchMouse(mouse);
     }
 
 

@@ -19,6 +19,14 @@ public class Cat extends Animal {
     }
 
     public void play(Creature another) {
-        System.out.println(getName() + " run away");
+        if (another.getClass() == Dog.class) {
+            System.out.println(getName() + " runs away from dog " + another.getName());
+        } else {
+            super.play(another);
+        }
     }
+    public void catchMouse(Mouse mouse){
+        System.out.println("I " + getName() + "  catch " + mouse.getName());
+    }
+
 }

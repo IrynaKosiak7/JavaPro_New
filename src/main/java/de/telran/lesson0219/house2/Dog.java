@@ -15,7 +15,11 @@ public class Dog extends Animal {
         System.out.println("Gav! Gav!");
     }
     public void play(Creature another) {
-        System.out.println(getName() + " barks at "+ another.getClass().getSimpleName());
+        if (another.getClass() == Cat.class) {
+            System.out.println(getName() + " barks at "+ another.getClass().getSimpleName());
+        }else {
+            super.play(another);
+        }
     }
 
 
