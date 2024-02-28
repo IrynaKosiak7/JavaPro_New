@@ -1,13 +1,8 @@
 package de.telran.lesson0219.house2;
 
-public class Cat extends Animal {
-
-    public Cat(String catName){
-        this(catName, "white", 1);
-    }
-
-    public Cat(String catName, String catColour, int catAge){
-        super(catName, catColour, catAge);
+public class Cat extends Animal implements CatchMouse {
+    public Cat(String name, int age, String colour, boolean isHungry) {
+        super(name, age, colour, isHungry);
     }
 
     public void sayHello(){

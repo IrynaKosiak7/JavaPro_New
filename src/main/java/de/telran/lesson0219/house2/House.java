@@ -3,8 +3,8 @@ package de.telran.lesson0219.house2;
 public class House {
 
     public static void main(String[] args) {
-        Cat cat1 = new Cat("Tom", "white", 2);
-        Cat cat2 = new Cat("Vasya", "black", 1);
+        Cat cat1 = new Cat("Tom", 1,"white", true);
+        Cat cat2 = new Cat("Vasya", 2,"black", false);
         cat1.sayHello();
         cat2.sayHello();
 
@@ -23,7 +23,7 @@ public class House {
 ////        robot2.printTotalRobotCount();
 //        Robot.printTotalRobotCount();
 
-        Dog dog = new Dog("Jack", "grey", 1);
+        Dog dog = new Dog("Jack", 1,"grey", false);
         dog.bark();
         dog.sayHello();
 //        dog.feed();
@@ -38,8 +38,8 @@ public class House {
         Human human = new Human("Harry" ,30);
 //        human.feedAnimal(dog);
         human.feedAnimal(dog, cat1, cat2);
-        human.walkAnimal(dog);
-        human.walkAnimal(cat2);
+        human.walk(dog);
+        human.walk(cat2);
         System.out.println("----------------");
 
 
@@ -53,7 +53,7 @@ public class House {
         dog.play(human);
         cat2.play(dog);
 
-        Cat blackCat = new BlackCat("Robert",5);
+        Cat blackCat = new BlackCat("Robert",5,"grey", true);
         blackCat.play(dog);
 
         System.out.println("----------------");
@@ -64,8 +64,8 @@ public class House {
         cat2.grow();
         System.out.println("----------------");
 
-        robot.walkAnimal(dog);
-        Mouse mouse = new Mouse("Jerry", "gray", 1);
+        robot.walk(dog);
+        Mouse mouse = new Mouse("Jerry", 1,"gray", true);
         cat2.catchMouse(mouse);
         robot.catchMouse(mouse);
     }

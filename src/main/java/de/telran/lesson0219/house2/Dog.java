@@ -2,8 +2,8 @@ package de.telran.lesson0219.house2;
 
 public class Dog extends Animal {
 
-    public Dog(String name, String colour, int age) {
-        super(name, colour, age);
+    public Dog(String name, int age, String colour, boolean isHungry) {
+        super(name, age, colour, isHungry);
     }
 
     @Override
@@ -21,6 +21,5 @@ public class Dog extends Animal {
             super.play(another);
         }
     }
-
 
 }
