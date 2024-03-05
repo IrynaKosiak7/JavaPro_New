@@ -13,7 +13,7 @@ public class DataReverse {
         System.out.println("New data " + data);
 
         int[][] array = new int[3][4];
-        arrayPrintForTranspose(fillingArray(array));
+        arrayPrint(fillingArray(array));
         System.out.println("--------");
         fillingArray(array);
         transpose(fillingArray(array));
@@ -48,7 +48,7 @@ public class DataReverse {
         return array;
     }
 
-    public static void arrayPrintForTranspose(int[][] array) {
+    public static void arrayPrint(int[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[0].length; j++) {
                 System.out.print(array[i][j] + " ");
