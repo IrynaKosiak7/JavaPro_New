@@ -4,38 +4,26 @@ import java.util.*;
 
 public class DataReverse {
     public static void main(String[] args) {
-        List<String> data = new ArrayList<String>();
-        data.add("One");
-        data.add("Two");
-        data.add("Three");
-        System.out.println(data);
-        Collections.reverse(data);
-        System.out.println("New data " + data);
+        reverceArrayString();
 
         int[][] array = new int[3][4];
-        arrayPrint(fillingArray(array));
-        System.out.println("--------");
-        fillingArray(array);
-        transpose(fillingArray(array));
+        transpose(array);
         System.out.println("--------");
 
         generateMatrix();
+    }
+
+    public static void reverceArrayString() {
+        String[] data = {"One", "Two", "Three"};
+        System.out.println("Original: " + Arrays.toString(data));
+        String temp = data[0];
+        data[0] = data[2];
+        data[2] = temp;
+        System.out.println("New data: " + Arrays.toString(data));
 
     }
 
-    public static int[][] transpose(int[][] array) {
-        int[][] result = new int[array[0].length][array.length];
-        for (int i = 0; i < array[0].length; i++) {
-            for (int j = 0; j < array.length; j++) {
-                result[i][j] = array[j][i];
-                System.out.print(result[i][j] + " ");
-            }
-            System.out.print("\n");
-        }
-        return result;
-    }
-
-    public static int[][] fillingArray(int[][] array) {
+    public static void transpose(int[][] array) {
         int number = 1;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[0].length; j++) {
@@ -43,15 +31,16 @@ public class DataReverse {
                     array[i][j] = number;
                     number++;
                 }
-            }
-        }
-        return array;
-    }
-
-    public static void arrayPrint(int[][] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[0].length; j++) {
                 System.out.print(array[i][j] + " ");
+            }
+            System.out.print("\n");
+        }
+        System.out.println("--------");
+        int[][] result = new int[array[0].length][array.length];
+        for (int i = 0; i < array[0].length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                result[i][j] = array[j][i];
+                System.out.print(result[i][j] + " ");
             }
             System.out.print("\n");
         }
