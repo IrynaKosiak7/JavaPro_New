@@ -2,11 +2,15 @@ package de.telran.lesson0304.Homework.Fairytale;
 
 public class Fairytale {
     public static void main(String[] args) {
-        Сhest chest = new Сhest(10, "brown");
-        Hare hare = new Hare(25, "grey", true);
-        Duck duch = new Duck(20, "brown with white blemishes", true);
-        Egg egg = new Egg(5, "white", false);
-        Needle needle = new Needle(2, "silver", false);
+        Needle needle = new Needle(1, "silver");
+        Egg egg = new Egg( "white", 2, needle);
+        Duck duch = new Duck( "brown with white blemishes", false, egg);
+        Hare hare = new Hare("brown",  true, duch);
+        Сhest chest = new Сhest(10, "brown", hare);
+
+
+
+
         System.out.println(chest);
         System.out.println(hare);
         System.out.println(duch);
@@ -15,32 +19,20 @@ public class Fairytale {
 
         chest.clear();
         System.out.println(chest);
-        hare.clear();
-        System.out.println(hare);
-        duch.clear();
-        System.out.println(duch);
-        egg.clear();
-        System.out.println(egg);
-        needle.clear();
-        System.out.println(needle);
 
         System.out.println("---------------------");
-        Сhest chest1 = new Сhest(15, "black");
-        Hare hare1 = new Hare(35, "white", false);
-        Duck duch1 = new Duck(22, "brown ", true);
-        Egg egg1 = new Egg(7, "brown", false);
-        Needle needle1 = new Needle(1, "gold", false);
-        System.out.println(chest1);
+        Needle needle1 = new Needle(2, "gold");
+        Egg egg1 = new Egg("brown", 7, needle1);
+        Duck duck1 = new Duck("brown ", true, egg1);
+        Hare hare1 = new Hare( "white", false, duck1);
+        Сhest chest1 = new Сhest(15, "black",hare1);
+
+        System.out.println(duck1.deepCopy());
         System.out.println("New Chest: " + chest1.shallowCopy());
-        System.out.println(hare1);
-        System.out.println("New hare: " + hare1.shallowCopy());
-        System.out.println("New hare deepCope : " + hare1.deepCopy());
-        System.out.println(duch1);
-        System.out.println("New duch1: " + duch1.shallowCopy());
-        System.out.println("New duch1 deepCope : " + duch1.deepCopy());
-        System.out.println(needle1);
-        System.out.println("New needle1: " + needle1.shallowCopy());
-        System.out.println("New needle1 deepCope : " + needle1.deepCopy());
+        System.out.println("New chest deep copy: " + chest1.deepCopy());
+        System.out.println(chest1);
+
+
 
 
 

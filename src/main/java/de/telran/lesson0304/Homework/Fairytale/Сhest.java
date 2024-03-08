@@ -1,14 +1,19 @@
 package de.telran.lesson0304.Homework.Fairytale;
 
-public class Сhest {
+public class Сhest{
     private int size;
     private String color;
+    private Hare hare;
 
     public Сhest(int size, String color) {
         this.size = size;
         this.color = color;
     }
-
+    public Сhest(int size, String color, Hare hare) {
+        this.size = size;
+        this.color = color;
+        this.hare = hare;
+    }
     public int getSize() {
         return size;
     }
@@ -28,30 +33,33 @@ public class Сhest {
     public void clear() {
         size = 0;
         color = null;
-        if (this instanceof Hare) {
-            ((Hare) this).setCanMove(false);
-        }
+        this.hare = null;
     }
 
     public Сhest shallowCopy() {
-        if  (this instanceof Hare) {
-            return ((Hare) this);
-        }
-        return new Сhest(size, color);
+        return new Сhest(size, color, hare);
     }
 
     public Сhest deepCopy() {
-        if (this instanceof Hare) {
-            return new Hare(size, color, ((Hare) this).isCanMove());
-        }
-        return new Сhest(size, color);
+        Hare newHare = new Hare(hare.getColor(), hare.isCanMove(), hare.getDuck());
+        return new Сhest(size, color, newHare);
     }
+
+    public Hare getHare() {
+        return hare;
+    }
+
+    public void setHare(Hare hare) {
+        this.hare = hare;
+    }
+
 
     @Override
     public String toString() {
         return "Сhest {" +
                 "size = " + size +
-                ", color = '" + color + '\'' +
+                ", color = " + color +
+                ", hare = " + hare + '\'' +
                 '}';
     }
 }

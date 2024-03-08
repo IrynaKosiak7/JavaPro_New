@@ -1,4 +1,4 @@
-package de.telran.house;
+package de.telran.lesson0219.house;
 
 public class House {
     public static void main(String[] args) {
