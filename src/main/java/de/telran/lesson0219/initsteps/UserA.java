@@ -1,4 +1,4 @@
-package de.telran.initsteps;
+package de.telran.lesson0219.initsteps;
 
 public class UserA {
     public static void main(String[] args) {

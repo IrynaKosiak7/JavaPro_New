@@ -1,4 +1,4 @@
-package de.telran.methods;
+package de.telran.lesson0219.methods;
 
 public class VarArgMethod {
     public static void main(String... args) {

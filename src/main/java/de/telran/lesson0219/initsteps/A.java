@@ -1,4 +1,4 @@
-package de.telran.initsteps;
+package de.telran.lesson0219.initsteps;
 
 public class A {
     static  String staticField = "staticField";
