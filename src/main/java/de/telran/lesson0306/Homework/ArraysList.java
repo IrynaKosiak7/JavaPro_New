@@ -91,7 +91,7 @@ public class ArraysList {
 //   7. Написать метод, который выдает из исходного списка список всех значений, делящихся на заданное число q.
         System.out.println(arrayListInteger);
         System.out.println("q: 5 - "+ getListDividedByAGivenNumber(arrayListInteger,5));
-        System.out.println("q: 2 - " + getListDividedByAGivenNumber(arrayListInteger,2));
+        System.out.println("q: 2 - " + getListDividedByAGivenNumber(arrayListInteger,-2));
         System.out.println("q: 10 - " + getListDividedByAGivenNumber(arrayListInteger,10));
 
     }
@@ -106,9 +106,14 @@ public class ArraysList {
     private static ArrayList<Integer> getListDividedByAGivenNumber(ArrayList<Integer> array, int q){
        List<Integer> arrays = new ArrayList<>();
         for (Integer i: array) {
-            if (i.intValue() % q == 0) {
-                arrays.add(i);
+            if (q >= 0){
+                if (i.intValue() % q == 0) {
+                    arrays.add(i);
+                }
+            } else {
+               i= -1;
             }
+
         }
         return (ArrayList<Integer>) arrays;
     }
