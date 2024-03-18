@@ -42,7 +42,7 @@ public class HomeworkLinkedList {
         examples.add(new Example("Anna", 22, true, "Russia"));
         examples.add(new Example("Oleg", 29, true, "Austria"));
         System.out.println(examples);
-        Example.deleted(examples, "Russia" );
+        Example.deleted(examples, "Russia");
 
 
 //  Напишите метод, чтобы получить первое и последнее вхождение указанных элементов в связанном списке.
@@ -121,10 +121,15 @@ public class HomeworkLinkedList {
             this.country = country;
         }
 
-        public static void deleted(LinkedList<Example> examp, String country){
-            examp.removeIf(example -> example.getCountry().equals(country));
+        public static void deleted(LinkedList<Example> examp, String country) {
+            for (Example example : examp) {
+                if (example.country.equals(country)) {
+                    examp.remove(example);
+                }
+            }
             System.out.println(examp);
         }
+
         @Override
         public String toString() {
             return "Example{" +
