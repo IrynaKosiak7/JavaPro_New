@@ -54,7 +54,7 @@ public class Customer implements Comparable<Customer>{
     }
     public static void main(String[] args) {
         Customer customer1 = new Customer("Ivan", "new124@gmail.com", "German", 10, false);
-        Customer customer2 = new Customer("Iryna", "irYna@yandex.ua", "Belarus", 15, true);
+        Customer customer2 = new Customer("Iryna", "irYna@yandex.ua", "Belarus", 15, false);
         Customer customer3 = new Customer("Olena", "NewAccount@ukr.net", "Ukraine", 5, true);
         Customer customer4 = new Customer("Ivanka", "MyEmail@qmail.com", "Italy", 7, false);
         Customer customer5 = new Customer("Ivan", "NewMoglichkeit@qmail.com", "Austria", 20, true);
@@ -81,16 +81,14 @@ public class Customer implements Comparable<Customer>{
         }
         System.out.println(customerCountByName);
 
-        Map<Boolean, Set<String>> customerIsEmailConfirmed = new TreeMap<>();
+        Map<Boolean, Integer> customerIsEmailConfirmed = new TreeMap<>();
         for (Customer customer : customerList) {
             Boolean isConfirmed = customer.isEmailConfirmed;
-            if (customerIsEmailConfirmed.containsKey(isConfirmed)) {
-                Set<String> confirmedSet = customerIsEmailConfirmed.get(isConfirmed);
-                confirmedSet.add(customer.email);
+            if (!customerIsEmailConfirmed.containsKey(isConfirmed)) {
+                customerIsEmailConfirmed.put(isConfirmed, 1);
             } else {
-                Set<String> confirmedSet = new HashSet<>();
-                confirmedSet.add(customer.email);
-                customerIsEmailConfirmed.put(isConfirmed, confirmedSet);
+                Integer emailCount = customerIsEmailConfirmed.get(isConfirmed);
+                customerIsEmailConfirmed.put(isConfirmed, emailCount + 1);
             }
         }
         System.out.println(customerIsEmailConfirmed);
