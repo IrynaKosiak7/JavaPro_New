@@ -5,6 +5,7 @@ import de.telran.lesson0318.Tasks;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -23,8 +24,9 @@ public class Stream {
         System.out.println("количество людей с именем \"Tom\" - " + countTomNameInList);
 
 //    - Из списка имен вывести первое по алфавиту, предпоследнее по алфавиту
-        String firstName = employees.stream().sorted().min(String::compareTo).get();
-        String lastName = employees.stream().sorted().max(String::compareTo).get();
+        List<String> employees1 = List.of("Ivan", "Olga", "Anna", "Inna", "Iryna", "Tom", "Maryna", "Yulia");
+        String firstName = employees1.stream().sorted().min(String::compareTo).get();
+        String lastName = employees1.stream().sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
         List<String> firstUndLastName = List.of(firstName, lastName);
         System.out.println(firstUndLastName);
 
@@ -33,7 +35,6 @@ public class Stream {
         System.out.println("делятся на 7 - " + countNumbers);
 
 //    - Посчитать сумму квадратов чисел от 1 до 100
-
         Integer sumSquare = IntStream.range(0, 100).reduce(0, (accumulator, element) -> (int) (accumulator + Math.pow(element, 2)));
         System.out.println("суммa квадратов чисел от 1 до 100 - " + sumSquare);
 
@@ -52,6 +53,7 @@ public class Stream {
 
 
         System.out.println("----------");
+
         System.out.println("method " + method(strings));
 
         System.out.println("methodWithStream - " + methodWithStream(strings));
