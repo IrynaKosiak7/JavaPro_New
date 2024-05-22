@@ -3,9 +3,13 @@ package de.telran.summary0517.GroupWork;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FindGenericElementsTest {
+
+
     @Test
     public void normalFunctionWithForTest(){
         int[] arr1 = new int[]{1, 2, 5, 5, 8, 9, 7, 10};
@@ -30,21 +34,21 @@ class FindGenericElementsTest {
     }
     @Test
     public void arrayIsEmptyWithForTest(){
-        int[] arr1 = new int[]{};
-        int[] arr2 = new int[]{};
+        int[] arr1 = new int[0];
+        int[] arr2 = new int[0];
 
-        int[] expected = {};
+        int[] expected = new int[0];
 
         int[] actual = FindGenericElements.getGenericElementsWithFor(arr1,arr2);
 
         Assertions.assertArrayEquals(expected, actual);
     }
     @Test
-    public void getGenericsElementsWithForTest(){
-        int[] arr1 = new int[]{9,9,9,9,9,9,9,9};
-        int[] arr2 = new int[]{9,9,9,9,9,9,9,9};
+    public void arrayHasNullWithForTest(){
+        int[] arr1 = null;
+        int[] arr2 =null;
 
-        int[] expected = {9};
+        int[] expected = new int[0];
 
         int[] actual = FindGenericElements.getGenericElementsWithFor(arr1,arr2);
 
@@ -63,10 +67,10 @@ class FindGenericElementsTest {
     }
     @Test
     public void oneArrayIsEmptyWithForTest(){
-        int[] arr1 = new int[]{};
+        int[] arr1 = new int[0];
         int[] arr2 = new int[]{1, 0,-2, 6, 15, 6, 4, -7};
 
-        int[] expected = {};
+        int[] expected = new  int[0];
 
         int[] actual = FindGenericElements.getGenericElementsWithFor(arr1,arr2);
 
@@ -75,9 +79,9 @@ class FindGenericElementsTest {
     @Test
     public void twoArrayIsEmptyWithForTest(){
         int[] arr1 = new int[]{1, 0,-2, 6, 15, 6, 4, -7};
-        int[] arr2 = new int[]{};
+        int[] arr2 = new  int[0];
 
-        int[] expected = {};
+        int[] expected = new  int[0];
 
         int[] actual = FindGenericElements.getGenericElementsWithFor(arr1,arr2);
 
@@ -109,10 +113,10 @@ class FindGenericElementsTest {
     }
     @Test
     public void arrayIsEmptyWithSetTest(){
-        int[] arr1 = new int[]{};
-        int[] arr2 = new int[]{};
+        int[] arr1 = new  int[0];
+        int[] arr2 = new  int[0];
 
-        int[] expected = {};
+        int[] expected = new  int[0];
 
         int[] actual = FindGenericElements.getGenericElementsWithSet(arr1,arr2);
 
@@ -142,10 +146,10 @@ class FindGenericElementsTest {
     }
     @Test
     public void oneArrayIsEmptyWithSetTest(){
-        int[] arr1 = new int[]{};
+        int[] arr1 = new  int[0];
         int[] arr2 = new int[]{1, 0,-2, 6, 15, 6, 4, -7};
 
-        int[] expected = {};
+        int[] expected = new  int[0];
 
         int[] actual = FindGenericElements.getGenericElementsWithSet(arr1,arr2);
 
@@ -154,9 +158,9 @@ class FindGenericElementsTest {
     @Test
     public void twoArrayIsEmptyWithSetTest(){
         int[] arr1 = new int[]{1, 0,-2, 6, 15, 6, 4, -7};
-        int[] arr2 = new int[]{};
+        int[] arr2 = new  int[0];
 
-        int[] expected = {};
+        int[] expected = new  int[0];
 
         int[] actual = FindGenericElements.getGenericElementsWithSet(arr1,arr2);
 

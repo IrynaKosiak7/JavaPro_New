@@ -1,8 +1,15 @@
 package de.telran.summary0517.GroupWork;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import static org.junit.jupiter.api.Assertions.assertTimeout;
 
 public class FindGenericElements {
     public static void main(String[] args) {
@@ -12,9 +19,13 @@ public class FindGenericElements {
 
         System.out.println(getGenericElementsWithSet(array1, array2));
 
+
     }
 
     public static int[] getGenericElementsWithFor(int[] array1, int[] array2) {
+        if (array1 == null || array2 == null){
+            return new int[0];
+        }
         int[] array = new int[array2.length];
         int c = 0;
         for (int i = 0; i < array1.length; i++) {
@@ -29,6 +40,9 @@ public class FindGenericElements {
         return Arrays.copyOfRange(array, 0, c);
     }
     public static int[] getGenericElementsWithSet(int[] array1, int[] array2) {
+        if (array1 == null || array2 == null){
+            return new int[0];
+        }
         Set<Integer> set = new HashSet<>();
         Set<Integer> collect = new HashSet<>();
         for (int numb: array1){
