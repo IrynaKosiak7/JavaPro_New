@@ -2,12 +2,6 @@ package de.telran.lesson0513.homework;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjusters;
-import java.util.ArrayList;
-import java.util.Formatter;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class HomeTasks {
     public static void main(String[] args) {
@@ -29,19 +23,21 @@ public class HomeTasks {
 //  2) Рейс из Лос-Анджелеса во Франкфурт отправляется в 15:05 по местному времени и длится 10 ч. 50 м. Во сколько он прилетит? Написать метод,
 //  который мог бы совершать подобные вычисления.
         arrivalTimeCalculation(LocalDate.of(2024, 8, 15), LocalTime.of(15, 05),
-                ZoneId.of("America/Los_Angeles"), ZoneId.of("Europe/Berlin"), 650);
+                ZoneId.of("America/Los_Angeles"), ZoneId.of("Europe/Berlin"), Duration.ofHours(10).plusMinutes(50));
 
 
     }
 
-    public static void arrivalTimeCalculation(LocalDate dateDeparture, LocalTime timeDeparture, ZoneId zoneDeparture, ZoneId arrivalZone, int timeFlight) {
+    public static void arrivalTimeCalculation(LocalDate dateDeparture, LocalTime timeDeparture, ZoneId zoneDeparture, ZoneId arrivalZone, Duration timeFlight) {
         LocalDateTime dateTimeDeparture = LocalDateTime.of(dateDeparture, timeDeparture);
         ZoneId departureZone = zoneDeparture;
         ZonedDateTime departureTimeDateZone = ZonedDateTime.of(dateTimeDeparture, departureZone);
         System.out.println(departureTimeDateZone);
 
-        ZonedDateTime arrivalZoneDateTime = ZonedDateTime.of(dateTimeDeparture.plusMinutes(timeFlight), arrivalZone);
+        ZonedDateTime arrivalZoneDateTime = ZonedDateTime.of(dateTimeDeparture,zoneDeparture).plus(timeFlight).withZoneSameInstant(arrivalZone);
         System.out.println(arrivalZoneDateTime);
+
+//        System.out.println(ZonedDateTime.of(dateTimeDeparture, zoneDeparture).plus(timeFlight).withZoneSameInstant(arrivalZone));
     }
 
 }
