@@ -10,6 +10,9 @@ public class RemoveGenericElements {
     }
 
     public static int[] getArrayWithoutGenericElements(int[] array) {
+        if (array== null){
+            return new int[0];
+        }
         return Arrays.stream(array).distinct().toArray();
 
     }

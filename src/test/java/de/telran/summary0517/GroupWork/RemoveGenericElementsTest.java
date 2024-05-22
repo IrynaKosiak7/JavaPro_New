@@ -18,9 +18,19 @@ class RemoveGenericElementsTest {
     }
     @Test
     public void emptyArrayTest(){
-        int[] arr1 = new int[]{};
+        int[] arr1 = new int[0];
 
-        int[] expected = {};
+        int[] expected = new int[0];
+
+        int[] actual = RemoveGenericElements.getArrayWithoutGenericElements(arr1);
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void nullArrayTest(){
+        int[] arr1 = null;
+
+        int[] expected = new int[0];
 
         int[] actual = RemoveGenericElements.getArrayWithoutGenericElements(arr1);
 
