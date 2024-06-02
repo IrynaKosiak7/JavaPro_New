@@ -1,8 +1,6 @@
 package de.telran.lesson0529;
 
 import java.util.*;
-import java.util.concurrent.Semaphore;
-
 
 public class SportsCompetition {
     // Спортивное соревнование. Бегут 3 бегуна. Каждый пробегает дистанцию за случайное время.
@@ -14,9 +12,9 @@ public class SportsCompetition {
     private static List<Runner> result = Collections.synchronizedList(new ArrayList<>());
 
     public static void main(String[] args) {
-        Runner runner1 = new Runner("Patric", 300);
-        Runner runner2 = new Runner("Alex", 300);
-        Runner runner3 = new Runner("Dennis", 300);
+        Runner runner1 = new Runner("Patric");
+        Runner runner2 = new Runner("Alex");
+        Runner runner3 = new Runner("Dennis");
         Thread thread1 = new Thread(runner1);
         Thread thread2 = new Thread(runner2);
         Thread thread3 = new Thread(runner3);
@@ -32,19 +30,15 @@ public class SportsCompetition {
         }
         printResults();
 
-
     }
 
     static class Runner implements Runnable {
-        private Object mutex = new Object();
         private String name;
-        private int distance;
         private long time;
 
 
-        public Runner(String name, int distance) {
+        public Runner(String name) {
             this.name = name;
-            this.distance = distance;
         }
 
         public long getTime() {
