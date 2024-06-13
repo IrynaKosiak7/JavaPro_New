@@ -1,8 +1,8 @@
 package de.telran.lesson0610.homework;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
-import java.util.stream.LongStream;
+import java.util.Random;
+
 
 public class ArrayWithALargeAmountOfTestData {
 //  Составить массив с большим объемом тестовых данных. С помощью стримов отсортировать данные
@@ -15,19 +15,21 @@ public class ArrayWithALargeAmountOfTestData {
     public static void main(String[] args) {
         long start;
         long end;
+
+        long[] data = new long[100_000_000];
+        Random random = new Random();
+        for (int i = 0; i < data.length; i++) {
+            data[i] = random.nextLong();
+        }
         start = System.currentTimeMillis();
-        long[] data = new long[]{100, 2000, 4, -5, 0, 1, 15, -2, 15, 200, 235, 2, 679, 89, 457, 111110000, 1254158, 154, 6, -64, 1000000000, 10000, 1877000000, 166666666, 1474154851, -1541584174, 1518741741, -2562586 - 226525999, -532832014, 2585412};
-        Object[] result = LongStream.of(data).boxed().sorted().toArray();
-
+        Arrays.sort(data);
         end = System.currentTimeMillis();
-        System.out.println(Arrays.toString(result) + " sorted for " + (end - start) + " ms");
+        System.out.println("Sorted consecutive passage of time" + (end - start) + " ms");
 
-
-        data = new long[]{100, 2000, 4, -5, 0, 1, 15, -2, 15, 200, 235, 2, 679, 89, 457, 111110000, 1254158, 154, 6, -64, 1000000000, 10000, 1877000000, 166666666, 1474154851, -1541584174, 1518741741, -2562586 - 226525999, -532832014, 2585412};
-        result = LongStream.of(data).parallel().boxed().sorted().toArray();
-
+        start = System.currentTimeMillis();
+        Arrays.stream(data).parallel().sorted();
         end = System.currentTimeMillis();
-        System.out.println(Arrays.toString(result) + " sorted in parallel for " + (end - start) + " ms");
+        System.out.println("Sorted in parallel passage of time " + (end - start) + " ms");
 
 
     }
