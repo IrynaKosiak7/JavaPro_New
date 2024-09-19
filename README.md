@@ -1,4 +1,4 @@
-    ***Online shop for home and garden***
+               **Online shop for home and garden**
 
 **Technical specification**
 [https://docs.google.com/document/d/10vnhDHE8lb7rTIRdbskId9ESLQE2EJ8y/edit#heading=h.e2bcw3kuo1da]
